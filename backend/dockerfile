@@ -1,0 +1,17 @@
+# Use a imagem oficial do Node.js 16 como imagem base
+FROM node:16
+
+# Crie o diretório de trabalho no contêiner
+WORKDIR /app
+
+# Copie o código-fonte do aplicativo (um simples "Hello, World!") para o contêiner
+COPY . .
+
+# Instale qualquer dependência (neste caso, não há nenhuma)
+RUN npm install
+
+# Exponha a porta em que o aplicativo Node.js está ouvindo
+EXPOSE 3000
+
+# Comando para iniciar o aplicativo
+CMD ["node", "index.js"]
