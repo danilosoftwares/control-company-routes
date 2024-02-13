@@ -31,7 +31,5 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3004:3000"
-    volumes:
-      - ./frontend:/app
     depends_on:
       - backend        

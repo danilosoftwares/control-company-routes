@@ -1,8 +1,16 @@
-FROM node:16-alpine
+# Use a imagem oficial do Node.js 16 como imagem base
+FROM node:16
+
+# Crie o diretório de trabalho no contêiner
 WORKDIR /app
-COPY package.json ./
-RUN npm install
+
+# Copie o código-fonte do aplicativo (um simples "Hello, World!") para o contêiner
 COPY . .
-RUN npm run build
+
+# Instale qualquer dependência (neste caso, não há nenhuma)
+RUN npm install
+
+# Exponha a porta em que o aplicativo Node.js está ouvindo
 EXPOSE 3000
-CMD ["npm", "start"]
+
+CMD [ "npm", "start" ]
