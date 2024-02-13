@@ -3,6 +3,12 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 Esta aplicação tem por objeto permitir o gerenciamento de clientes e uma funcionalidade para organizar a ordem de rotas de visitas de clientes.
+
+## Clonando repositorio
+```sh
+git clone https://github.com/danilosoftwares/control-company-routes.git
+```
+
 ## Baixando e Excutando aplicação no Docker
 Somente com o docker instalado é possivel rodar a aplicação que irá gerar um banco de dados postgres com uma tabela previamente criada e com backend em nodejs e frontend em reactjs.
 
