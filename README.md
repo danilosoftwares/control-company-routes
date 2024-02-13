@@ -4,6 +4,13 @@
 
 Esta aplicação tem por objeto permitir o gerenciamento de clientes e uma funcionalidade para organizar a ordem de rotas de visitas de clientes.
 
+## Baixando e executando aplicaçao sem clonar repositorio
+```sh
+curl --remote-name https://raw.githubusercontent.com/danilosoftwares/control-company-routes/main/.env
+curl --remote-name https://raw.githubusercontent.com/danilosoftwares/control-company-routes/main/docker-compose.yml
+docker-compose up -d
+```
+
 ## Clonando repositorio
 ```sh
 git clone https://github.com/danilosoftwares/control-company-routes.git
