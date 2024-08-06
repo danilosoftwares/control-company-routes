@@ -1,57 +1,57 @@
-# Aplicação de gerenciamento de clientes e gerador de rotas
+# Customer management application and route generator
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-Esta aplicação tem por objeto permitir o gerenciamento de clientes e uma funcionalidade para organizar a ordem de rotas de visitas de clientes.
+The purpose of this application is to allow customer management and a functionality to organize the order of customer visit routes.
 
-## Baixando e executando aplicaçao sem clonar repositorio
+## Downloading and running application without cloning repository
 ```sh
 curl --remote-name https://raw.githubusercontent.com/danilosoftwares/control-company-routes/main/.env
 curl --remote-name https://raw.githubusercontent.com/danilosoftwares/control-company-routes/main/docker-compose.yml
 docker-compose up -d
 ```
 
-## Clonando repositorio
+## Cloning repository
 ```sh
 git clone https://github.com/danilosoftwares/control-company-routes.git
 ```
 
-## Baixando e Excutando aplicação no Docker
-Somente com o docker instalado é possivel rodar a aplicação que irá gerar um banco de dados postgres com uma tabela previamente criada e com backend em nodejs e frontend em reactjs.
+## Downloading and Running the Application in Docker
+Only with Docker installed is it possible to run the application that will generate a postgres database with a previously created table and with a backend in nodejs and frontend in reactjs.
 
 ```sh
 docker-compose up -d
 ```
 
-## Buildando e Executando a aplicação no Docker Local
-Somente com o docker instalado é possivel buildar e rodar a aplicação local diretamente do repositorio, onde a mesma irá subir o banco de dados em postgres e gerar a tabela necessária para o uso da api e do frontend.
-Basta estar com o terminal na pasta do repositorio do arquivo docker-compose e rodar o seguinte comando:
+## Building and Running the Application in Docker Locally
+Only with Docker installed is it possible to build and run the local application directly from the repository, where it will upload the database in Postgres and generate the table necessary for using the API and the frontend.
+Just have the terminal in the repository folder of the docker-compose file and run the following command:
 
 ```sh
 docker-compose -f docker-compose-local.yml up -d
 ```
 
-## Usando a aplicação local
-Apos executar ou buildar/excutar a aplicação local é possivel acessar a api no host http://localhost:3003/ e acessar o frontend da aplicação no host http://localhost:3004/
+## Using the local application
+After running or building/running the local application, it is possible to access the API on the host http://localhost:3003/ and access the application frontend on the host http://localhost:3004/
 
 # BackEnd
-O BackEnd foi desenvolvido em NodeJS utilizando o framework express para montagem da api e conectando-se a um banco de dados postgres.
-A Aplicação utilizou dos seguintes itens:
+The BackEnd was developed in NodeJS using the express framework to assemble the API and connect to a Postgres database.
+The Application used the following items:
 - Frameworks
     - [Express](https://expressjs.com/)
     - [Postgres](https://www.npmjs.com/package/pg)
-- Banco de Dados
+- DataBase
     - [Postgres](https://www.postgresql.org/)  
 
-### A Aplicação tem os seguintes endpoints:
+### The Application has the following endpoints:
 ## Get /
-Rota utilizada para verificar se servidor esta ativo
+Route used to check if server is active
 
-Exemplo de Request:
+Request example:
 ```sh
 curl --location 'http://localhost:3003/'
 ```
-Exemplo de Response:
+Response example:
 ```json
 {
     "status": true,
@@ -59,13 +59,13 @@ Exemplo de Response:
 }
 ```
 ## Get /Clients
-Rota utilizada para buscar todos ou alguns clientes
+Route used to search for all or some customers
 
-Exemplo de Request:
+Request example:
 ```sh
 curl --location 'http://localhost:3003/clients'
 ```
-Exemplo de Response:
+Response example:
 ```json
 [
     {
@@ -88,13 +88,13 @@ Exemplo de Response:
     }
 ]
 ```
- É possível com esse mesmo endopint fazer filtros
+It is possible to use this same endpoint to make filters
 
-Exemplo de Request:
+Request example:
 ```sh
 curl --location 'http://localhost:3003/clients?filter=maria.oliveira'
 ```
-Exemplo de Response:
+Response example:
 ```json
 [
     {
@@ -109,13 +109,13 @@ Exemplo de Response:
 ]
 ```
 ## Get /Clients/:id
-Rota utilizada para buscar um cliente especifico
+Route used to search for a specific customer
 
-Exemplo de Request:
+Request example:
 ```sh
 curl --location 'http://localhost:3003/clients/4'
 ```
-Exemplo de Response:
+Response example:
 ```json
 [
     {
@@ -131,9 +131,9 @@ Exemplo de Response:
 ```
 
 ## Post /Clients
-Rota utilizada para gravar um cliente no banco de dados
+Route used to record a customer in the database
 
-Exemplo de Request:
+Request example:
 ```sh
 curl --location 'http://localhost:3003/clients' \
 --header 'Content-Type: application/json' \
@@ -147,7 +147,7 @@ curl --location 'http://localhost:3003/clients' \
 }
 '
 ```
-Exemplo de Response:
+Response example:
 ```json
 {
     "id": 13,
@@ -161,9 +161,9 @@ Exemplo de Response:
 ```
 
 ## Put /Clients
-Rota utilizada para alterar um cliente no banco de dados
+Route used to change a customer in the database
 
-Exemplo de Request:
+Request example:
 ```sh
 curl --location --request PUT 'http://localhost:3003/clients/2' \
 --header 'Content-Type: application/json' \
@@ -177,7 +177,7 @@ curl --location --request PUT 'http://localhost:3003/clients/2' \
 }'
 '
 ```
-Exemplo de Response:
+Response example:
 ```json
 {
     "id": 2,
@@ -191,26 +191,26 @@ Exemplo de Response:
 ```
 
 ## Delete /Clients/:id
-Rota utilizada para deletar um cliente no banco de dados
+Route used to delete a customer from the database
 
-Exemplo de Request:
+Request example:
 ```sh
 curl --location --request DELETE 'http://localhost:3000/clients/13'
 ```
-Exemplo de Response:
+Response example:
 ```json
 {
     "message": "Client deleted successfully."
 }
 ```
 ## Get /Clients/Route
-Rota utilizada para trazer em ordem de distancia os clientes mais proximos do estabelecimento com coordenada (x:0,y:0)
+Route used to bring in order of distance the customers closest to the establishment with coordinate (x:0,y:0)
 
-Exemplo de Request:
+Request example:
 ```sh
 curl --location 'http://localhost:3003/clients/route'
 ```
-Exemplo de Response:
+Response example:
 ```json
 [
     {
@@ -246,12 +246,12 @@ Exemplo de Response:
 ]
 ```
 # FrontEnd
-O FrontEnd foi desenvolvido em ReactJS utilizando de um framework visual chamado rsuite que permite a montagem de componentes visuais com estilização pronta.
-A Aplicação utilizou os seguintes itens:
+The FrontEnd was developed in ReactJS using a visual framework called rsuite that allows the assembly of visual components with ready-made styling.
+The Application used the following items:
 - Frameworks
     - [RSuite](https://rsuitejs.com/)
     
-## Demonstração de Uso
+## Usage Demonstration
 ![](demonstracao.gif)    
 
 ## License
