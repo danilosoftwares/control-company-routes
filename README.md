@@ -4,6 +4,9 @@
 
 The purpose of this application is to allow customer management and a functionality to organize the order of customer visit routes.
 
+## Flux Process
+![](flux.png)  
+
 ## Downloading and running application without cloning repository
 ```sh
 curl --remote-name https://raw.githubusercontent.com/danilosoftwares/control-company-routes/main/.env
